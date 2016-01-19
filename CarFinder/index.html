@@ -1,0 +1,308 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carfinder</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Font Icon and Plugins -->
+    <link href="assets/font/fa/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/font/tello/css/fontello.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="assets/css/animation.css" rel="stylesheet">
+    <!-- Theme of Design -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="assets/images/faicon.png">
+    <link rel="apple-touch-icon" sizes="129x129" href="assets/images/icon.png">
+
+    <link href="assets/css/yourcss.css" rel="stylesheet">
+</head>
+<body>
+   
+
+    <!-- =========
+    Start Wrapper Page
+    ===================================-->
+    <div id="wrapper">
+       
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <header class="portrait"id="startpage">                     
+                        <div class="body-portrait">                                    
+                            <h1><b>Carfinder App</b></h1>
+                            <br />
+                            <br />
+                            <h2><b>Find the Second Hand Car of Your Dreams</b></h2>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <h4><b>An Angular JS/C# App</b></h4>
+                            <br />
+                            <br />
+                            <br />
+                            <a href="javascript:void(0)" class="btn btn-flat " id="open-content">Click Here to Start</a>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                    </header>
+                    <!-- =========
+                    End portrait section
+                    ===================================-->
+                    <!-- =========
+                    Start Content section
+                    ===================================-->
+                    <section class="content" id="main-content">
+
+                        <!-- =========
+                        Start navigation section
+                        ===================================-->
+                        <nav id='navigation'>
+                            <ul class="navigation-list clearfix list-unstyled">
+                                <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i class="icon-user"></i> <span>About</span></a></li>
+                                <li><a href="#resume" data-toggle="tab" data-menu="resume"><i class="icon-newspaper"></i>  <span>Cars</span></a></li>
+                                <li><a href="#portfolio" data-toggle="tab" data-menu="portfolio"><i class="icon-folder-open"></i> <span>API</span></a></li>
+                                <li><a href="#contact" data-toggle="tab" data-menu="contact"><i class="icon-mail"></i> <span>Contact</span></a></li>
+                            </ul>
+                        </nav>
+                        <!-- =========
+                        End navigation section
+                        ===================================-->
+                        <!-- =========
+                        Start tab content section
+                        ===================================-->
+                        <div class="tab-content">
+
+                            <!-- =========
+                            Start About tab content section
+                            ===================================-->
+                            <div id='about' class="tab-pane  fade in  active">
+                                <div class="body-content">
+
+                                    <!-- =========
+                                    Start About your self section
+                                    ===================================-->
+                                    <div class="row">                                  
+                                        <div class="col-md-9">
+                                            <div class="mini-desc">
+                                                <h2 class="title"> Car Finder App</h2>
+                                                <p>This app let's the user search a car database on the server via an internal API. The drop down menues are populated dynamically based on the user's choices. </p>
+                                                <p>Once a car has been chosen, the user can see a picture of that car. This is achieved by an image search using a BING API. </p>
+                                                <p>The user can also check for details of any recalls in the USA for the chosen car. This is done via a API to the NHTSA database. </p>
+                                                <p>The backend has been programmed with C# and the fronten</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                            <!-- =========
+                            End About tab content section
+                            ===================================-->
+                            <!-- =========
+                            Start resume tab content section
+                            ===================================-->
+                            <div id='resume' class="tab-pane fade">
+                                <div class="body-content">
+                                    <div id="start" class="container" ng-app="CarFinderApp">
+                                        <div ng-controller="CarFinderAppController">
+                                            <div class="row" id="centre">
+                                                <div class="col-lg-2">
+                                                    <select id="yearSelection" class="form-control" ng-model="selectedYear" ng-options="y for y in years" ng-change="getMakes()"></select>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <select id="makeSelection" class="form-control" ng-model="selectedMake" ng-options="make for make in makes" ng-change="getModels()"></select>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <select id="modelSelection" class="form-control" ng-model="selectedModel" ng-options="model for model in models" ng-change="getTrims()"></select>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <select id="trimSelection" class="form-control" ng-model="selectedTrim" ng-options="trim for trim in trims" ng-change="getCar()"></select>
+                                                </div>
+                                            </div>
+                                            <div id="carinfo">
+                                                <h2 class="title">
+                                                    <!-- Insert car heading here-->
+                                                    {{carData.car.Model_year}} {{carData.car.Make | uppercase}} {{carData.car.Model_name | uppercase}}
+                                                    <br />
+                                                </h2>
+                                                <div class="row" id="displayElements" hidden="hidden">
+                                                    <div class="col-sm-2">
+                                                        <!--property labels-->
+                                                        Trim:<br />
+                                                        Doors:<br />
+                                                        Body Style:<br />                                               
+                                                        Engine in CC:<br />
+                                                        Cylinders:<br />
+                                                        Engine Power (PS):<br />
+                                                        Make (second display):
+                                                        
+                                                    </div>                               
+                                                    <div class="col-sm-10">
+                                                        {{carData.car.Model_trim}}<br />
+                                                        {{carData.car.Doors}}<br />
+                                                        {{carData.car.Body_style}}<br />
+                                                        {{carData.car.Engine_cc}}<br />
+                                                        {{carData.car.Engine_num_cyl}}<br />
+                                                        {{carData.car.Engine_power_ps}}<br />
+                                                        {{carData.car.Make_display}}<br />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- =========
+                            End resume tab content section
+                            ===================================-->
+                            <!-- =========
+                            Start portfolio tab content section
+                            ===================================-->
+                            <div id='portfolio' class="tab-pane fade">
+                                <div class="body-content">
+                                   
+                                </div>
+                            </div>
+                            <!-- =========
+                            End portfolio tab content section
+                            ===================================-->
+                           
+                            <!-- =========
+                            Start Contact tab content section
+                            ===================================-->
+                            <div id='contact' class="tab-pane fade">
+                                <div class="body-content">
+                                    <h3 class="title with-icon"><span class="fa fa-coffee icn-title"></span> Get In Touch</h3>
+
+                                    <!-- =========
+                                    Start map section
+                                    ===================================-->
+                                    <!--<div class="map-area">
+                                        <div id="map"></div>
+                                        <div class="info-map">
+                                            <h3>Contact Info</h3>
+                                            <ul class="list-unstyled list-info">
+                                                <li><i class="fa fa-home"></i> Haltern am See, Weseler Str. 151</li>
+                                                <li><i class="fa fa-phone"></i> +62-867-7887</li>
+                                                <li><i class="fa fa-facebook"></i> <a href="#">id.envato</a></li>
+                                                <li><i class="fa fa-twitter"></i> <a href="#">id.envato </a></li>
+                                                <li><i class="fa fa-linkedin"></i> <a href="#">idea</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="deviter"></div>
+                                    <br />-->
+                                    <!-- =========
+                                    End map section
+                                    ===================================-->
+                                    <!-- =========
+                                    Start form contact section
+                                    ===================================-->
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="FullnameForm">Fullname</label>
+                                                    <input type="text" class="form-control" id="FullnameForm" placeholder="Enter Fullname">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="CompanyForm">Company</label>
+                                                    <input type="text" class="form-control" id="CompanyForm" placeholder="Enter Company">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="EmailForm">Email Address</label>
+                                                    <input type="email" class="form-control" id="EmailForm" placeholder="Enter Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="PhoneForm">Phone Number</label>
+                                                    <input type="text" class="form-control" id="PhoneForm" placeholder="Enter Phone NUmber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="MesageForm">Message</label>
+                                            <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-flat btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
+                                    </form>
+                                    <!-- =========
+                                    End form contact section
+                                    ===================================-->
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- =========
+                        End tab content section
+                        ===================================-->
+                    </section>
+                    <!-- =========
+                    End Content section
+                    ===================================-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =========
+    End Wrapper Page
+    ===================================-->
+    <!-- =========
+    Text Showup Wait Document Ready
+    ===================================-->
+    <div id="wait-page" class="text-center">Loading...</div>
+
+
+    <!-- =========
+    Javascript load
+    ===================================-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- jQuery animation page loader -->
+    <script src='assets/js/pace.min.js'></script>
+
+    <!-- JS maps for gmap3 JavaScript plugins) -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.autofix_anything.js"></script>
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <script src='assets/js/gmap3.min.js'></script>
+
+    <script src='assets/js/jquery.magnific-popup.min.js'></script>
+
+    <!-- Configuration app js -->
+    <script src="assets/js/app.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-resource.min.js"></script>
+    <script src="NgApp/app.js"></script>
+    <script src="NgApp/Controllers/CarFinderAppController.js"></script>
+
+</body>
+</html>
