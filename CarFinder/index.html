@@ -39,7 +39,8 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <header class="portrait"id="startpage">                     
-                        <div class="body-portrait">                                    
+                        <div class="body-portrait">   
+                            <br />                                 
                             <h1><b>Carfinder App</b></h1>
                             <br />
                             <br />
@@ -84,7 +85,7 @@
                         <!-- =========
                         Start tab content section
                         ===================================-->
-                        <div class="tab-content">
+                        <iv class="tab-content">
 
                             <!-- =========
                             Start About tab content section
@@ -95,16 +96,19 @@
                                     <!-- =========
                                     Start About your self section
                                     ===================================-->
-                                    <div class="row">                                  
-                                        <div class="col-md-9">
-                                            <div class="mini-desc">
+                                    <div class="row" id="centre">                                  
+                                        <div class="col-md-10 col-md-offset-1">
                                                 <h2 class="title"> Car Finder App</h2>
-                                                <p>This app let's the user search a car database on the server via an internal API. The drop down menues are populated dynamically based on the user's choices. </p>
-                                                <p>Once a car has been chosen, the user can see a picture of that car. This is achieved by an image search using a BING API. </p>
+                                                <p>This app is an excercise in using internal and external APIs.</p>
+                                                    let's the user search a car database on the server via an internal API. The drop down menus are populated 
+                                                    dynamically based on the user's choices. </p>
+                                                <p>Once a car has been chosen information available in the local database is displayed to the other. 
+                                                    This information includes for example engine size, doors, weight, length, fuel type, etc... However,
+                                                    please note that the database is missing some of the information for some cars and in those cases
+                                                    only the available information will be displayed.</p>
+                                                <p>Using a BING API 5 pictures for the car will also be displayed. </p>
                                                 <p>The user can also check for details of any recalls in the USA for the chosen car. This is done via a API to the NHTSA database. </p>
-                                                <p>The backend has been programmed with C# and the fronten</p>
-
-                                            </div>
+                                                <p>The back-end has been programmed with C# and the front-end with AngularJS.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -120,53 +124,150 @@
                                 <div class="body-content">
                                     <div id="start" class="container" ng-app="CarFinderApp">
                                         <div ng-controller="CarFinderAppController">
-                                            <div class="row" id="centre">
+                                            <!--<div class="row" id="centreLabel">
                                                 <div class="col-lg-2">
-                                                    <select id="yearSelection" class="form-control" ng-model="selectedYear" ng-options="y for y in years" ng-change="getMakes()"></select>
+                                                    <label for="yearSelection">YEAR</label>
                                                 </div>
                                                 <div class="col-lg-2">
-                                                    <select id="makeSelection" class="form-control" ng-model="selectedMake" ng-options="make for make in makes" ng-change="getModels()"></select>
+                                                    <label for="makeSelection">MAKE</label>
                                                 </div>
                                                 <div class="col-lg-2">
-                                                    <select id="modelSelection" class="form-control" ng-model="selectedModel" ng-options="model for model in models" ng-change="getTrims()"></select>
+                                                    <label for="modelSelection">MODEL</label>
                                                 </div>
                                                 <div class="col-lg-2">
-                                                    <select id="trimSelection" class="form-control" ng-model="selectedTrim" ng-options="trim for trim in trims" ng-change="getCar()"></select>
+                                                    <label for="trimSelection">TRIM</label>
                                                 </div>
-                                            </div>
-                                            <div id="carinfo">
-                                                <h2 class="title">
+                                            </div>-->
+
+                                                <div class="row selection">
+                                                    <div class="col-lg-2">
+                                                        <label for="yearSelection" class="myLabels">YEAR</label>
+                                                        <select id="yearSelection" class="form-control" ng-model="selectedYear" ng-options="y for y in years" ng-change="getMakes()"></select>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="makeSelection" class="myLabels">MAKE</label>
+                                                        <select id="makeSelection" class="form-control" ng-model="selectedMake" ng-disabled="makes == null" ng-options="make for make in makes" ng-change="getModels()"></select>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="modelSelection" class="myLabels">MODEL</label>
+                                                        <select id="modelSelection" class="form-control" ng-model="selectedModel" ng-disabled="models == null" ng-options="model for model in models" ng-change="getTrims()"></select>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="trimSelection" class="myLabels">TRIM</label>
+                                                        <select id="trimSelection" class="form-control" ng-model="selectedTrim" ng-disabled="trims == null" ng-options="trim for trim in trims" ng-change="getCar()"></select>
+                                                    </div>
+                                                </div>
+
+                                                <h2 id="carHeading" >
                                                     <!-- Insert car heading here-->
                                                     {{carData.car.Model_year}} {{carData.car.Make | uppercase}} {{carData.car.Model_name | uppercase}}
                                                     <br />
                                                 </h2>
-                                                <div class="row" id="displayElements" hidden="hidden">
-                                                    <div class="col-sm-2">
-                                                        <!--property labels-->
-                                                        Trim:<br />
-                                                        Doors:<br />
-                                                        Body Style:<br />                                               
-                                                        Engine in CC:<br />
-                                                        Cylinders:<br />
-                                                        Engine Power (PS):<br />
-                                                        Make (second display):
-                                                        
-                                                    </div>                               
-                                                    <div class="col-sm-10">
-                                                        {{carData.car.Model_trim}}<br />
-                                                        {{carData.car.Doors}}<br />
-                                                        {{carData.car.Body_style}}<br />
-                                                        {{carData.car.Engine_cc}}<br />
-                                                        {{carData.car.Engine_num_cyl}}<br />
-                                                        {{carData.car.Engine_power_ps}}<br />
-                                                        {{carData.car.Make_display}}<br />
+                                                <div class="row" id="displayElements" ng-show="carData != null">
+                                                    <div class ="col-lg-6">
+                                                        <div class="row" ng-show="carData.car.Trim != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Trim: </div>
+                                                            <div class="col-md-7">{{selectedTrim}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Doors != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Doors: </div>
+                                                            <div class="col-md-7">{{carData.car.Doors}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Body_style != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Body Style: </div>
+                                                            <div class="col-md-7">{{carData.car.Body_style}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Engine_cc != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Engine Size (cc): </div>
+                                                            <div class="col-md-7">{{carData.car.Engine_cc}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Engine_num_cyl != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Cylinders: </div>
+                                                            <div class="col-md-7">{{carData.car.Engine_num_cyl}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Engine_power_ps != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Engine Power (ps): </div>
+                                                            <div class="col-md-7">{{carData.car.Engine_power_ps}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Engine_valves_per_cyl  != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Valves per Cylinder: </div>
+                                                            <div class="col-md-7">{{carData.car.Engine_valves_per_cyl}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Engine_position != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Engine Position: </div>
+                                                            <div class="col-md-7">{{carData.car.Engine_position}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Engine_fuel != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Fuel Type: </div>
+                                                            <div class="col-md-7">{{carData.car.Engine_fuel}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Top_speed_kph != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Top Speed (kph): </div>
+                                                            <div class="col-md-7">{{carData.car.Top_speed_kph}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Zero_to_100_kph != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Zero to 100kph (sec): </div>
+                                                            <div class="col-md-7">{{carData.car.Zero_to_100_kph}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Drive_type != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Drive Type: </div>
+                                                            <div class="col-md-7">{{carData.car.Drive_type}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Transmission_type != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Transmission Type: </div>
+                                                            <div class="col-md-7">{{carData.car.Transmission_type}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Seats != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Seats: </div>
+                                                            <div class="col-md-7">{{carData.car.Seats}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Weight_kg != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Weight (kg): </div>
+                                                            <div class="col-md-7">{{carData.car.Weight_kg}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Length_mm != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Length (mm): </div>
+                                                            <div class="col-md-7">{{carData.car.Length_mm}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Width_mm != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Width (mm):</div>
+                                                            <div class="col-md-7">{{carData.car.Width_mm}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Height_mm != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Height (mm): </div>
+                                                            <div class="col-md-7">{{carData.car.Height_mm}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Wheelbase != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Wheelbase (mm): </div>
+                                                            <div class="col-md-7">{{carData.car.Wheelbase}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.Fuel_capacity_l != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Fuel Capacity (l): </div>
+                                                            <div class="col-md-7">{{carData.car.Fuel_capacity_l}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.car.CO2 != ''">
+                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">CO2 (g/km): </div>
+                                                            <div class="col-md-7">{{carData.car.CO2}}<br /></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6" id="slides_control">
+                                                        <div>
+                                                            <carousel interval="myInterval">
+                                                                <slide ng-repeat="slide in slides" active="slide.active">
+                                                                    <img ng-src="{{slide.image}}">
+                                                                    <div class="carousel-caption">
+                                                                        <h4>Slide {{$index+1}}</h4>
+                                                                    </div>
+                                                                </slide>
+                                                            </carousel>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
                             <!-- =========
                             End resume tab content section
                             ===================================-->
@@ -187,29 +288,8 @@
                             ===================================-->
                             <div id='contact' class="tab-pane fade">
                                 <div class="body-content">
-                                    <h3 class="title with-icon"><span class="fa fa-coffee icn-title"></span> Get In Touch</h3>
+                                    <h3 class="title"> Get In Touch</h3>
 
-                                    <!-- =========
-                                    Start map section
-                                    ===================================-->
-                                    <!--<div class="map-area">
-                                        <div id="map"></div>
-                                        <div class="info-map">
-                                            <h3>Contact Info</h3>
-                                            <ul class="list-unstyled list-info">
-                                                <li><i class="fa fa-home"></i> Haltern am See, Weseler Str. 151</li>
-                                                <li><i class="fa fa-phone"></i> +62-867-7887</li>
-                                                <li><i class="fa fa-facebook"></i> <a href="#">id.envato</a></li>
-                                                <li><i class="fa fa-twitter"></i> <a href="#">id.envato </a></li>
-                                                <li><i class="fa fa-linkedin"></i> <a href="#">idea</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="deviter"></div>
-                                    <br />-->
-                                    <!-- =========
-                                    End map section
-                                    ===================================-->
                                     <!-- =========
                                     Start form contact section
                                     ===================================-->

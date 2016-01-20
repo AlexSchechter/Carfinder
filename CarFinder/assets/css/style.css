@@ -4,8 +4,36 @@
     Author     : Yobio
 */
 
-/*load google font */
+/*-how do I make make each tab item full screen exactly (responsive)?
+  -how do I make text in about page prettier?
+  -labels for car search
+  -make each page full screen
+  -how do I add API info
+  -change icons tab selection elements
+*/
 
+/*load google font */
+.selection .form-control{
+    color: #ba4e4e;
+    font-weight: bold;
+}
+.myLabels{
+    color: black;
+    margin-left:60px;
+    font-size: large;
+    padding-bottom: 5px;
+    padding-top: 20px;
+    display:block;
+}
+#carHeading{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 60px;
+    font-weight: bold;
+    font-size: x-large;
+    color: black;
+       
+}
 header.portrait{
     background-color:rgba(255,255,255,0.0000001);
     color: #ba4e4e;
@@ -30,11 +58,9 @@ body {
   background: #3a5a75;
   line-height: 24px;
   font-family: 'Open Sans', sans-serif;
-  color: #7f7f7f;
+  color: black;
   background-image: url("/assets/images/bugatti.jpg");
   background-size: 100%;
- // background-repeat: no-repeat;
- // background-position: left top, left 1080px;
 }
 body a {
   outline: none  !important;
@@ -680,11 +706,9 @@ Main Section Section
 }
 .form-control:focus {
   box-shadow: none;
-  border: 2px solid  #ba4e4e;
+  border: 3px solid  #ba4e4e;
 }
-#centre{
-    margin-bottom: 40px;
-}
+
 #carinfo{
     margin-left: 60px;
 }
@@ -694,6 +718,7 @@ Main Section Section
   margin-bottom: 20px;
   font-size: 18px;
   font-weight: 700;
+  color:black;
 }
 
 .title .icn-title {

@@ -513,13 +513,22 @@
         </member>
         <member name="M:CarFinder.Controllers.CarsController.GetCars(System.String,System.String,System.String,System.String)">
             <summary>
-            Retrieves a list of cars for a year, a make, a model and a trim
+            Retrieves a car for a year, a make, a model and a trim
             </summary>
             <param name="year"></param>
             <param name="make"></param>
             <param name="model"></param>
             <param name="trim"></param>
-            <returns>Enumerable list of cars for a year, a make, a model and a trim</returns>
+            <returns>A carData object for a year, a make, a model and a trim</returns>
+        </member>
+        <member name="M:CarFinder.Controllers.CarsController.GetCars(System.String,System.String,System.String)">
+            <summary>
+            Retrieves a car for a year, a make, a model (overload if no trim options available)
+            </summary>
+            <param name="year"></param>
+            <param name="make"></param>
+            <param name="model"></param>
+            <returns>A carData object for a year, a make, a model and a trim</returns>
         </member>
         <member name="M:Bing.BingSearchContainer.Composite(System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>

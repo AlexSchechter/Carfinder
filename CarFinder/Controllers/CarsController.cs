@@ -82,13 +82,13 @@ namespace CarFinder.Controllers
                 return NotFound();
         }
         /// <summary>
-        /// Retrieves a list of cars for a year, a make, a model and a trim
+        /// Retrieves a car for a year, a make, a model and a trim
         /// </summary>
         /// <param name="year"></param>
         /// <param name="make"></param>
         /// <param name="model"></param>
         /// <param name="trim"></param>
-        /// <returns>Enumerable list of cars for a year, a make, a model and a trim</returns>
+        /// <returns>A carData object for a year, a make, a model and a trim</returns>
         [ActionName("Cardata")]
         public async Task<IHttpActionResult> GetCars(string year, string make, string model, string trim)
         {
@@ -98,6 +98,24 @@ namespace CarFinder.Controllers
 
             carData.recalls = GetRecalls(year, make, model);
             carData.imageURLs = GetImages(year, make, model, trim);
+            return Ok(carData);
+        }
+        /// <summary>
+        /// Retrieves a car for a year, a make, a model (overload if no trim options available)
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="make"></param>
+        /// <param name="model"></param>
+        /// <returns>A carData object for a year, a make, a model and a trim</returns>
+        [ActionName("Cardata")]
+        public async Task<IHttpActionResult> GetCars(string year, string make, string model)
+        {
+            var carData = new CarData();
+            carData.car = await db.Database.SqlQuery<Car>("EXEC GetAllByYearMakeAndModel @year, @make, @model", new SqlParameter("year", year),
+                new SqlParameter("model", model), new SqlParameter("make", make)).FirstAsync();
+
+            carData.recalls = GetRecalls(year, make, model);
+            carData.imageURLs = GetImages(year, make, model);
             return Ok(carData);
         }
 
@@ -134,7 +152,7 @@ namespace CarFinder.Controllers
         private string[] GetImages(string year, string make, string model, string trim)
         {
             // This is the query - or you could get it from args.
-            string query = year + " " + make + " " + model + " " + trim;
+            string query = string.Concat(year, " ", make, " ", model, " ", trim);
 
             // Create a Bing container.
             string rootUri = "https://api.datamarket.azure.com/Bing/Search";
@@ -151,6 +169,35 @@ namespace CarFinder.Controllers
                                 .AddQueryOption("$top", 5)//limit images returned to 5
                                 .Execute();//execute the query
             
+            List<string> images = new List<string>();
+            foreach (var results in imageResults)
+            {
+                images.Add(results.MediaUrl);
+            }
+
+            return images.ToArray();
+        }
+        private string[] GetImages(string year, string make, string model)
+        {
+            // This is the query - or you could get it from args.
+            //string query = year + " " + make + " " + model;
+            string query = string.Concat(year," ", make, " ", model);
+
+            // Create a Bing container.
+            string rootUri = "https://api.datamarket.azure.com/Bing/Search";
+            var bingContainer = new Bing.BingSearchContainer(new Uri(rootUri));
+
+            // My account key.
+            var accountKey = "SFqfTsHuISE5EHYum81ONhrG5Eji5oaqZqGmv2QwjjM=";
+
+            // Configure bingContainer to use your credentials.
+            bingContainer.Credentials = new NetworkCredential(accountKey, accountKey);
+
+
+            var imageResults = bingContainer.Image(query, null, null, null, null, null, null)// Build the query but do not executy the query
+                                .AddQueryOption("$top", 5)//limit images returned to 5
+                                .Execute();//execute the query
+
             List<string> images = new List<string>();
             foreach (var results in imageResults)
             {
