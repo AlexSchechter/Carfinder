@@ -28,13 +28,10 @@
     <link href="assets/css/yourcss.css" rel="stylesheet">
 </head>
 <body>
-   
-
     <!-- =========
     Start Wrapper Page
     ===================================-->
-    <div id="wrapper">
-       
+    <div id="wrapper">  
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
@@ -85,7 +82,7 @@
                         <!-- =========
                         Start tab content section
                         ===================================-->
-                        <iv class="tab-content">
+                        <div class="tab-content">
 
                             <!-- =========
                             Start About tab content section
@@ -100,7 +97,7 @@
                                         <div class="col-md-10 col-md-offset-1">
                                                 <h2 class="title"> Car Finder App</h2>
                                                 <p>This app is an excercise in using internal and external APIs.</p>
-                                                    let's the user search a car database on the server via an internal API. The drop down menus are populated 
+                                                    let's the user search a car database of over 60,000 cars on the server via an internal API. The drop down menus are populated 
                                                     dynamically based on the user's choices. </p>
                                                 <p>Once a car has been chosen information available in the local database is displayed to the other. 
                                                     This information includes for example engine size, doors, weight, length, fuel type, etc... However,
@@ -123,22 +120,7 @@
                             <div id='resume' class="tab-pane fade">
                                 <div class="body-content">
                                     <div id="start" class="container" ng-app="CarFinderApp">
-                                        <div ng-controller="CarFinderAppController">
-                                            <!--<div class="row" id="centreLabel">
-                                                <div class="col-lg-2">
-                                                    <label for="yearSelection">YEAR</label>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <label for="makeSelection">MAKE</label>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <label for="modelSelection">MODEL</label>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <label for="trimSelection">TRIM</label>
-                                                </div>
-                                            </div>-->
-
+                                        <div ng-controller="CarFinderAppController">                         
                                                 <div class="row selection">
                                                     <div class="col-lg-2">
                                                         <label for="yearSelection" class="myLabels">YEAR</label>
@@ -164,7 +146,7 @@
                                                     <br />
                                                 </h2>
                                                 <div class="row" id="displayElements" ng-show="carData != null">
-                                                    <div class ="col-lg-6">
+                                                    <div class ="col-lg-4">
                                                         <div class="row" ng-show="carData.car.Trim != ''">
                                                             <div class="col-md-4 col-md-offset-1 text-primary text-right">Trim: </div>
                                                             <div class="col-md-7">{{selectedTrim}}<br /></div>
@@ -250,17 +232,14 @@
                                                             <div class="col-md-7">{{carData.car.CO2}}<br /></div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6" id="slides_control">
-                                                        <div>
-                                                            <carousel interval="myInterval">
-                                                                <slide ng-repeat="slide in slides" active="slide.active">
-                                                                    <img ng-src="{{slide.image}}">
-                                                                    <div class="carousel-caption">
-                                                                        <h4>Slide {{$index+1}}</h4>
-                                                                    </div>
-                                                                </slide>
-                                                            </carousel>
-                                                        </div>
+                                                    <div class="col-md-8" id="slides_control">
+                                                        <!-- Set up an image carousel using UI-Bootstrap for Angular. To manage the sequence animation we require two
+                                                            additional $scope variables, one to handle the slide change interval, one to say wheter to wrap the slides-->
+                                                        <uib-carousel interval="slideInterval" no-wrap="!wrapSlides">
+                                                            <uib-slide ng-repeat="url in carData.imageURLs">
+                                                                <img class="img-responsive" ng-src="{{url}}"/>
+                                                            </uib-slide>
+                                                        </uib-carousel>
                                                     </div>
                                                 </div>
                                             </div>
@@ -360,29 +339,19 @@
     <!-- =========
     Javascript load
     ===================================-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
     <script src="https://code.jquery.com/jquery.js"></script>
-
-    <!-- jQuery animation page loader -->
-    <script src='assets/js/pace.min.js'></script>
-
-    <!-- JS maps for gmap3 JavaScript plugins) -->
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="assets/js/jquery.autofix_anything.js"></script>
     <script src="assets/js/jquery.mixitup.min.js"></script>
-    <script src='assets/js/gmap3.min.js'></script>
-
     <script src='assets/js/jquery.magnific-popup.min.js'></script>
-
-    <!-- Configuration app js -->
     <script src="assets/js/app.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-resource.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="NgApp/app.js"></script>
     <script src="NgApp/Controllers/CarFinderAppController.js"></script>
-
 </body>
 </html>

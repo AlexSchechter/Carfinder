@@ -8,8 +8,8 @@
     $scope.selectedMake = '';
     $scope.selectedModel = '';
     $scope.selectedTrim = '';
-    $scope.carData = null;
-    // $scope.nameCapitals = $scope.carData.;
+    $scope.slideInterval = 4000;
+    $scope.WrapSlides = true;
 
     $scope.getYears = function () {
         //declare options object (if necessary)
@@ -73,21 +73,10 @@
         };
         $http.get('api/cars/CarData', options).then(function (response) {
             $scope.carData = response.data;
+            var x = 1;
         })
         
     };
 
     $scope.getYears();
-
-    function MyCarousel($scope) {
-        $scope.myInterval = 2000;
-        $scope.slides = [
-            {
-                image: '/images/Ferrari.jpg'
-            },
-            {
-                image: '/imageFerrari.jpg'
-            }
-            ];
-    };
 }]);

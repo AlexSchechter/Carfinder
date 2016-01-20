@@ -4,12 +4,12 @@
     Author     : Yobio
 */
 
-/*-how do I make make each tab item full screen exactly (responsive)?
+/*-how do I make make each tab item full screen exactly (responsive)? - PROBLEM AS HEADER STILL THERE
   -how do I make text in about page prettier?
-  -labels for car search
-  -make each page full screen
+  -labels for car search - OK
   -how do I add API info
   -change icons tab selection elements
+  -get rid of legacy from template
 */
 
 /*load google font */
@@ -41,9 +41,6 @@ header.portrait{
 body-portrait h1{
     font-weight:bold;
 }
-/*#start-text{
-    opacity: 1;
-}*/
 
 html {
   overflow-y: scroll;
@@ -116,84 +113,16 @@ Header Section
 ========================================== */
 /* wrapper portrait section */
 
-#bg{
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  min-width: 100%;
-  min-height: 100%;
-}
-
-
 .portrait {
   min-height: 400px;
   text-align: center;
 }
-.portrait .img-arrow {
-  display: none;
-  max-width: 30px;
-}
+
 .portrait #open-content {
   min-width: 130px;
 }
-.portrait .box-note {
-  position: relative;
-  max-width: 350px;
-  margin: 30px auto;
-  background: #249ebd;
-  padding: 10px 15px;
-  color: white;
-  border-radius: 10px;
-}
-.portrait .box-note:after {
-  content: "";
-  border-top: 10px solid #249ebd;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  position: absolute;
-  margin-left: -10px;
-  left: 50%;
-  bottom: -10px;
-}
-.portrait .portrait-img-area {
-  width: 160px;
-  margin: 0 auto;
-  position: relative;
-}
-.portrait .portrait-img-area .avatar {
-  width: 140px;
-}
-.portrait .portrait-img-area .profile-links a {
-  position: absolute;
-  width: 30px;
-  padding: 3px;
-  border-radius: 50%;
-  background: #e1e1e1;
-  font-size: 12px;
-}
-.portrait .portrait-img-area .profile-links a.facebook {
-  left: -10px;
-  bottom: 0;
-  background: #2C92AC;
-  color: white;
-}
-.portrait .portrait-img-area .profile-links a.twitter {
-  right: -10px;
-  bottom: 0;
-  background: #2C92AC;
-  color: white;
-}
-.portrait .name {
-  font-size: 30px;
-  line-height: 50px;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-.portrait .name small {
-  display: block;
-  font-size: 16px;
-  letter-spacing: 3px;
-}
+
+
 /* end portrait section */
 /* ======================================= 
 Main Section Section 
@@ -325,375 +254,14 @@ Main Section Section
     font-size: 18px;
   }
 }
-#about .box-testimonial {
-  position: relative;
-  padding-right: 100px;
-  min-height: 150px;
-}
-#about .box-testimonial .date-post {
-  font-style: italic;
-}
-#about .box-testimonial img {
-  width: 80px;
-  position: absolute;
-  right: 0;
-  top: 5px;
-}
-#about .box-testimonial .oComment {
-  background: #249EBD;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  min-height: 100px;
-  position: relative;
-  margin-bottom: 10px;
-}
-#about .box-testimonial .oComment:after {
-  content: "";
-  position: absolute;
-  border-left: 10px solid #249EBD;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  top: 40px;
-  right: -10px;
-}
-#about .box-testimonial .oComment h5 {
-  margin: 0;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-#about .control-testi-slider {
-  position: absolute;
-  right: 14px;
-  bottom: 0;
-}
-#about .control-testi-slider a {
-  display: inline-block;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  width: 26px;
-  color: #249EBD;
-  text-align: center;
-  background: white;
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-}
-#about .control-testi-slider a:hover {
-  background: #249EBD;
-  color: white;
-  border: 1px solid transparent;
-}
-#about .list-clients li {
-  float: left;
-  padding: 10px;
-  width: 50%;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-#about .list-clients li a {
-  display: block;
-}
-#about .list-clients li a img {
-  width: 95px;
-  opacity: 0.5;
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-}
-#about .list-clients li a img:hover {
-  opacity: 1;
-}
+
 /* End Stlye wrapper for about content section*/
 /* Start Stlye wrapper for resume content section*/
-#resume .time-line {
-  position: relative;
-  margin-top: 30px;
-  clear: both;
-}
-#resume .time-line .item-event {
-  position: relative;
-  padding-left: 15px;
-  border-left: 3px solid #e1e1e1;
-  margin-left: 25px;
-  padding-bottom: 30px;
-  padding-top: 10px;
-}
-#resume .time-line .item-event.current .date {
-  border: 5px solid #4B6F78;
-  background: #4B6F78;
-}
-#resume .time-line .item-event.current .event-content {
-  border: 3px solid #4B6F78;
-}
-#resume .time-line .item-event .date {
-  position: absolute;
-  left: -32px;
-  top: -10px;
-  border-radius: 50%;
-  background: #63A4B5;
-  display: inline-block;
-  padding: 12px 7px;
-  text-align: center;
-  z-index: 2;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-  border: 5px solid #fff;
-}
-#resume .time-line .item-event .event-content {
-  position: relative;
-  border: 3px solid #e1e1e1;
-  padding: 10px 20px;
-  border-radius: 0 10px 10px;
-}
-#resume .time-line .item-event .event-content h5 {
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #63A4B5;
-}
-#resume .caption-skill {
-  display: block;
-  margin-bottom: 5px;
-}
-#resume .list-skills li .progress {
-  height: 10px;
-  box-shadow: none;
-  overflow: inherit;
-}
-#resume .list-skills li .progress .progress-bar {
-  border-radius: 5px;
-  text-align: right;
-  position: relative;
-  background: #63A4B5;
-  box-shadow: none;
-}
-#resume .list-skills li .progress .progress-bar span {
-  position: relative;
-  bottom: -15px;
-  font-size: 10px;
-  color: white;
-  right: -13px;
-  display: inline-block;
-  background: #D84E4E;
-  padding: 1px 5px;
-  border-radius: 5px;
-}
-#resume .list-skills li .progress .progress-bar span:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  margin-left: -5px;
-  top: -5px;
-  border-bottom: 5px solid #D84E4E;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-#resume .list-skills li:nth-child(even) .progress-bar {
-  background: #4B6F78;
-}
-#resume .list-points-progress li .pogress-point {
-  background: url('../images/point.png') repeat-x;
-  height: 20px;
-  max-width: 200px;
-  position: relative;
-  margin-bottom: 20px;
-}
-#resume .list-points-progress li .pogress-point .point-indicator {
-  position: absolute;
-  background: #4B6F78;
-  width: 30px;
-  height: 21px;
-  display: inline-block;
-  font-size: 10px;
-  text-align: center;
-  color: white;
-  right: -40px;
-  top: 0;
-  border-radius: 5px;
-}
-#resume .list-points-progress li .pogress-point .point-indicator:before {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: 50%;
-  margin-top: -5px;
-  border-right: 5px solid #4B6F78;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-}
-#resume .list-points-progress li .pogress-point .progress-bar-point {
-  background: #BA4E4E;
-  height: 20px;
-  position: relative;
-}
-#resume .list-points-progress li .pogress-point .progress-bar-point:after {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 100%;
-  background: url('../images/point2.png') repeat-x;
-}
+
 /* End Stlye wrapper for about content section*/
 /* Start Stlye wrapper for portfolio content section*/
-#portfolio .control-profolio {
-  margin-top: 30px;
-}
-#portfolio .control-profolio li {
-  padding: 5px 15px;
-  border: 3px solid #e1e1e1;
-  margin-bottom: 5px;
-  font-weight: bold;
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-}
-#portfolio .control-profolio li.active,
-#portfolio .control-profolio li:hover {
-  border: 3px solid #63A4B5;
-  cursor: pointer;
-}
-#portfolio .grid-portfolio {
-  width: 100%;
-  margin-left: 4px;
-}
-#portfolio .grid-portfolio .mix {
-  display: none;
-  opacity: 0;
-  width: 33.3333%;
-  margin-left: -3px;
-}
-@media (max-width: 700px) {
-  #portfolio .grid-portfolio .mix {
-    width: 50%;
-  }
-}
-@media (max-width: 550px) {
-  #portfolio .grid-portfolio .mix {
-    width: 100%;
-  }
-}
-#portfolio .grid-portfolio .item-portfolio {
-  margin: 15px;
-}
-#portfolio .grid-portfolio .item-portfolio a.preview-portfolio {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-}
-#portfolio .grid-portfolio .item-portfolio a.preview-portfolio .mask {
-  position: absolute;
-  background: rgba(58, 90, 117, 0.5);
-  top: -100%;
-  width: 100%;
-  height: 50%;
-  border-bottom: 3px solid #aaea07;
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-}
-#portfolio .grid-portfolio .item-portfolio a.preview-portfolio .mask .icn-center {
-  position: absolute;
-  bottom: -5px;
-  z-index: 2;
-  color: #333;
-  font-size: 30px;
-  left: 50%;
-  background: #B4FF00;
-  padding: 3px;
-  width: 50px;
-  text-align: center;
-  margin-left: -25px;
-}
-#portfolio .grid-portfolio .item-portfolio a.preview-portfolio .mask .icn-center:before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 0;
-  border-bottom: 10px solid #B4FF00;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-}
-#portfolio .grid-portfolio .item-portfolio a.preview-portfolio .mask .icn-center:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  border-top: 10px solid #B4FF00;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-}
-#portfolio .grid-portfolio .item-portfolio a.preview-portfolio:hover .mask {
-  top: 0;
-}
-#portfolio .grid-portfolio .item-portfolio .desc-portfolio {
-  padding: 15px 20px;
-  border: 1px solid #e1e1e1;
-  text-align: center;
-}
-#portfolio .grid-portfolio .item-portfolio .desc-portfolio h5 {
-  font-weight: bold;
-  margin: 0;
-  line-height: 30px;
-  padding: 0;
-}
-#portfolio .grid-portfolio .item-portfolio .desc-portfolio h5 small {
-  display: block;
-  margin-bottom: 10px;
-}
 
-#contact .map-area {
-  position: relative;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  min-height: 450px;
-  background: url(../images/loader.gif) no-repeat center center;
-}
-#contact .map-area #map {
-  min-height: 450px;
-  width: 100%;
-}
-#contact .map-area .info-map {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-height: 150px;
-  width: 100%;
-  z-index: 3;
-  max-width: 300px;
-  padding: 20px;
-  background: #f2f2f2;
-}
-#contact .map-area .info-map h3 {
-  font-weight: 700;
-  font-size: 18px;
-  margin-top: 0;
-}
-#contact .map-area .info-map .list-info {
-  margin-bottom: 0;
-}
-#contact .map-area .info-map .list-info li {
-  position: relative;
-  padding-left: 20px;
-}
-#contact .map-area .info-map .list-info li i.fa {
-  position: absolute;
-  left: 0;
-  top: 5px;
-}
+
 /*Global CLass */
 .form-control {
   border: 3px solid black;
@@ -767,10 +335,7 @@ Main Section Section
   margin: 10px 0;
   border-bottom: 1px dashed #ddd;
 }
-.bg-line {
-  height: 15px;
-  background: #e1e1e1 url(../images/bg-line.png) repeat-x center bottom;
-}
+
 .body-content,
 .body-portrait {
   padding: 50px 20px;
@@ -955,39 +520,5 @@ blockquote {
     line-height: 30px;
   }
 }
-.theme-option {
-  text-align: center;
-}
-.theme-option a {
-  color: #7f7f7f;
-  text-decoration: none;
-  border: 1px solid #e1e1e1;
-  display: inline-block;
-  font-style: italic;
-  margin-bottom: 5px;
-  padding: 5px 15px;
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-}
-.theme-option a:hover {
-  background: #63A4B5;
-  color: white;
-}
+
 /*End  Global CLass */
-/* ======================================= 
-Footer Section 
-========================================== */
-/* wrapper footer section */
-.footer {
-  text-align: center;
-  color: #ddd;
-  font-weight: 300;
-  position: relative;
-  z-index: 2;
-  font-size: 12px;
-  padding: 20px;
-}
-/* end warapper footer section */
