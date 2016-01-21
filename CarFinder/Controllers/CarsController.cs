@@ -148,10 +148,8 @@ namespace CarFinder.Controllers
             return recalls;
         }
 
-        // Next, we need to retrieve images
         private string[] GetImages(string year, string make, string model, string trim)
         {
-            // This is the query - or you could get it from args.
             string query = string.Concat(year, " ", make, " ", model, " ", trim);
 
             // Create a Bing container.
@@ -161,49 +159,33 @@ namespace CarFinder.Controllers
             // My account key.
             var accountKey = "SFqfTsHuISE5EHYum81ONhrG5Eji5oaqZqGmv2QwjjM=";
 
-            // Configure bingContainer to use your credentials.
+            // Configure bingContainer to use my credentials.
             bingContainer.Credentials = new NetworkCredential(accountKey, accountKey);
-
-            
+        
             var imageResults = bingContainer.Image(query, null, null, null, null, null, null)// Build the query but do not executy the query
                                 .AddQueryOption("$top", 5)//limit images returned to 5
-                                .Execute();//execute the query
-            
+                                .Execute();//execute the query         
             List<string> images = new List<string>();
             foreach (var results in imageResults)
             {
-                images.Add(results.MediaUrl);
+                images.Add(results.Thumbnail.MediaUrl);
             }
-
             return images.ToArray();
         }
         private string[] GetImages(string year, string make, string model)
         {
-            // This is the query - or you could get it from args.
-            //string query = year + " " + make + " " + model;
             string query = string.Concat(year," ", make, " ", model);
-
-            // Create a Bing container.
             string rootUri = "https://api.datamarket.azure.com/Bing/Search";
             var bingContainer = new Bing.BingSearchContainer(new Uri(rootUri));
-
-            // My account key.
             var accountKey = "SFqfTsHuISE5EHYum81ONhrG5Eji5oaqZqGmv2QwjjM=";
-
-            // Configure bingContainer to use your credentials.
             bingContainer.Credentials = new NetworkCredential(accountKey, accountKey);
 
-
-            var imageResults = bingContainer.Image(query, null, null, null, null, null, null)// Build the query but do not executy the query
-                                .AddQueryOption("$top", 5)//limit images returned to 5
-                                .Execute();//execute the query
-
+            var imageResults = bingContainer.Image(query, null, null, null, null, null, null).AddQueryOption("$top", 5).Execute();
             List<string> images = new List<string>();
             foreach (var results in imageResults)
             {
-                images.Add(results.MediaUrl);
+                images.Add(results.Thumbnail.MediaUrl);
             }
-
             return images.ToArray();
         }
     }

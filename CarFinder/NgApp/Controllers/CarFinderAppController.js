@@ -3,12 +3,15 @@
     $scope.makes = null;
     $scope.models = null;
     $scope.trims = null;
+    $scope.carData = null;
 
     $scope.selectedYear = '';
     $scope.selectedMake = '';
     $scope.selectedModel = '';
     $scope.selectedTrim = '';
-    $scope.slideInterval = 40000;
+    
+    $scope.slideInterval = 300000;
+    $scope.isCollapsed = true;
 
     $scope.getYears = function () {
         //declare options object (if necessary)
@@ -72,9 +75,8 @@
         };
         $http.get('api/cars/CarData', options).then(function (response) {
             $scope.carData = response.data;
-            var x = 1;
         })
-        
+        $scope.isCollapsed = true;
     };
 
     $scope.getYears();

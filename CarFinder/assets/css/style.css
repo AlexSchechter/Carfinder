@@ -20,7 +20,7 @@
 .img-responsive {
     display: inline-block;
     margin: 0 auto;
-    height: 350px !important;
+    height: 300px !important;
 }
 .selection .form-control{
     color: #ba4e4e;
@@ -140,6 +140,13 @@ Main Section Section
   display: none;
   position: relative;
 }
+.recallDetail{
+    display: flex !important;
+    font-weight: bold;
+}
+.recallDescription{
+    color: #ba4e4e;
+}
 #main-content.open {
   display: block !important;
 }
@@ -148,6 +155,7 @@ Main Section Section
   padding-top: 80px;
   box-shadow: 0 10px 0 #36546d;
 }
+
 /* end content section */
 /* Start  wrapper for navigation section*/
 #navigation {

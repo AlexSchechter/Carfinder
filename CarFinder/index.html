@@ -241,8 +241,52 @@
                                                             <div class="col-sm-5">CO2 (g/km) </div>
                                                             <div class="col-sm-7">{{carData.Car.CO2}}<br /></div>
                                                         </div>
+                                                    </div>                      
+                                                </div>
+                                                <div class="row">
+                                                    <div class="panel panel-default" ng-show="carData.Recalls.Count > 0">
+                                                        <div class="panel-heading bg-red">
+                                                            <h3 class="panel-title text-center">
+                                                                <a href="" ng-click="isCollapsed = !isCollapsed">
+                                                                    <span class="white bold">View Recalls ({{carData.Recalls.Count}})</span>
+                                                                </a>
+                                                            </h3>
+                                                        </div>
+                                                        <div uib-collapse="isCollapsed">
+                                                            <div class="panel-body">
+                                                                <div class="col-sm-12">
+                                                                    <div ng-repeat="recallItem in carData.Recalls.Results">
+
+                                                                        <div class="bold" ng-show="recallItem.NHTSACampaignNumber != null">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-3 text-right recallDescription">Recall Number: </div>
+                                                                                <div class="col=sm-9 text-left recallDetail">{{recallItem.NHTSACampaignNumber}}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="bold" ng-show="recallItem.Component != null">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-3 text-right recallDescription">Affected Component: </div>
+                                                                                <div class="col=sm-9 text-left recallDetail">{{recallItem.Component}}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="bold" ng-show="recallItem.Summary != null">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-3 text-right recallDescription">Recall Reason: </div>
+                                                                                <div class="col=sm-9 recallDetail">{{recallItem.Summary}}</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="bold" ng-show="recallItem.Conequence != null">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-3 text-right recallDescription">Consequence: </div>
+                                                                                <div class="col=sm-9 text-left recallDetail">{{recallItem.Conequence}}</div>
+                                                                                <br />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>                                                                                                                         
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                   
                                                 </div>
                                             </div>
                                         </div>

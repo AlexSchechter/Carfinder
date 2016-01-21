@@ -7,8 +7,8 @@ namespace CarFinder.Models
 {
     public class Recalls
     {
-        int Count { get; set; }
-        string Message { get; set; }
+        public int Count { get; set; }
+        public string Message { get; set; }
         public RecallItem[] Results { get; set; }
     }
 }
