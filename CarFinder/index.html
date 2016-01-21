@@ -244,11 +244,11 @@
                                                     </div>                      
                                                 </div>
                                                 <div class="row">
-                                                    <div class="panel panel-default" ng-show="carData.Recalls.Count > 0">
-                                                        <div class="panel-heading bg-red">
+                                                    <div class="panel panel-default recallPanel" ng-show="carData.Recalls.Count > 0">
+                                                        <div class="panel-heading recallPanel">
                                                             <h3 class="panel-title text-center">
                                                                 <a href="" ng-click="isCollapsed = !isCollapsed">
-                                                                    <span class="white bold">View Recalls ({{carData.Recalls.Count}})</span>
+                                                                    <span class="viewRecalls">View Recalls ({{carData.Recalls.Count}})</span>
                                                                 </a>
                                                             </h3>
                                                         </div>

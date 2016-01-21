@@ -42,6 +42,18 @@
     color: black;
        
 }
+.panel-title .viewRecalls{
+    color: #ba4e4e;
+    font-weight: bold;
+}
+.panel.panel-default.recallPanel{
+    padding-top: 10px;
+    border: 0px;
+}
+.panel-heading.recallPanel{
+    background: white;
+    border: 0px;
+}
 header.portrait{
     background-color:rgba(255,255,255,0.0000001);
     color: #ba4e4e;
@@ -136,6 +148,7 @@ Header Section
 Main Section Section 
 ========================================== */
 /* wrapper for content section */
+
 #main-content {
   display: none;
   position: relative;
