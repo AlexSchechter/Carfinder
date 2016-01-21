@@ -93,11 +93,11 @@ namespace CarFinder.Controllers
         public async Task<IHttpActionResult> GetCars(string year, string make, string model, string trim)
         {
             var carData = new CarData();
-            carData.car = await db.Database.SqlQuery<Car>("EXEC GetAllByYearMakeModelAndTrim @year, @make, @model, @trim", new SqlParameter("year", year),
+            carData.Car = await db.Database.SqlQuery<Car>("EXEC GetAllByYearMakeModelAndTrim @year, @make, @model, @trim", new SqlParameter("year", year),
                 new SqlParameter("model", model), new SqlParameter("make", make), new SqlParameter("trim", trim)).FirstAsync();
 
-            carData.recalls = GetRecalls(year, make, model);
-            carData.imageURLs = GetImages(year, make, model, trim);
+            carData.Recalls = GetRecalls(year, make, model);
+            carData.ImageURLs = GetImages(year, make, model, trim);
             return Ok(carData);
         }
         /// <summary>
@@ -111,11 +111,11 @@ namespace CarFinder.Controllers
         public async Task<IHttpActionResult> GetCars(string year, string make, string model)
         {
             var carData = new CarData();
-            carData.car = await db.Database.SqlQuery<Car>("EXEC GetAllByYearMakeAndModel @year, @make, @model", new SqlParameter("year", year),
+            carData.Car = await db.Database.SqlQuery<Car>("EXEC GetAllByYearMakeAndModel @year, @make, @model", new SqlParameter("year", year),
                 new SqlParameter("model", model), new SqlParameter("make", make)).FirstAsync();
 
-            carData.recalls = GetRecalls(year, make, model);
-            carData.imageURLs = GetImages(year, make, model);
+            carData.Recalls = GetRecalls(year, make, model);
+            carData.ImageURLs = GetImages(year, make, model);
             return Ok(carData);
         }
 

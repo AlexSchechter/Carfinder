@@ -34,7 +34,7 @@
     <div id="wrapper">  
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
+                <div class="col-sm-10 col-sm-offset-1">
                     <header class="portrait"id="startpage">                     
                         <div class="body-portrait">   
                             <br />                                 
@@ -94,7 +94,7 @@
                                     Start About your self section
                                     ===================================-->
                                     <div class="row" id="centre">                                  
-                                        <div class="col-md-10 col-md-offset-1">
+                                        <div class="col-sm-10 col-sm-offset-1">
                                                 <h2 class="title"> Car Finder App</h2>
                                                 <p>This app is an excercise in using internal and external APIs.</p>
                                                     let's the user search a car database of over 60,000 cars on the server via an internal API. The drop down menus are populated 
@@ -119,202 +119,204 @@
                             ===================================-->
                             <div id='resume' class="tab-pane fade">
                                 <div class="body-content">
-                                    <div id="start" class="container" ng-app="CarFinderApp">
-                                        <div ng-controller="CarFinderAppController">                         
+                                    <div class="row">
+                                        <div id="start" class="col-sm-12" ng-app="CarFinderApp">
+                                            <div ng-controller="CarFinderAppController">
                                                 <div class="row selection">
-                                                    <div class="col-lg-2">
+                                                    <div class="col-sm-3">
                                                         <label for="yearSelection" class="myLabels">YEAR</label>
                                                         <select id="yearSelection" class="form-control" ng-model="selectedYear" ng-options="y for y in years" ng-change="getMakes()"></select>
                                                     </div>
-                                                    <div class="col-lg-2">
+                                                    <div class="col-sm-3">
                                                         <label for="makeSelection" class="myLabels">MAKE</label>
                                                         <select id="makeSelection" class="form-control" ng-model="selectedMake" ng-disabled="makes == null" ng-options="make for make in makes" ng-change="getModels()"></select>
                                                     </div>
-                                                    <div class="col-lg-2">
+                                                    <div class="col-sm-3">
                                                         <label for="modelSelection" class="myLabels">MODEL</label>
                                                         <select id="modelSelection" class="form-control" ng-model="selectedModel" ng-disabled="models == null" ng-options="model for model in models" ng-change="getTrims()"></select>
                                                     </div>
-                                                    <div class="col-lg-2">
+                                                    <div class="col-sm-3">
                                                         <label for="trimSelection" class="myLabels">TRIM</label>
                                                         <select id="trimSelection" class="form-control" ng-model="selectedTrim" ng-disabled="trims == null" ng-options="trim for trim in trims" ng-change="getCar()"></select>
                                                     </div>
                                                 </div>
 
-                                                <h2 id="carHeading" >
+                                                <h2 id="carHeading">
                                                     <!-- Insert car heading here-->
-                                                    {{carData.car.Model_year}} {{carData.car.Make | uppercase}} {{carData.car.Model_name | uppercase}}
+                                                    {{carData.Car.Model_year}} {{carData.Car.Make | uppercase}} {{carData.Car.Model_name | uppercase}}
                                                     <br />
                                                 </h2>
                                                 <div class="row" id="displayElements" ng-show="carData != null">
-                                                    <div class ="col-lg-4">
-                                                        <div class="row" ng-show="carData.car.Trim != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Trim: </div>
-                                                            <div class="col-md-7">{{selectedTrim}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Doors != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Doors: </div>
-                                                            <div class="col-md-7">{{carData.car.Doors}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Body_style != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Body Style: </div>
-                                                            <div class="col-md-7">{{carData.car.Body_style}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Engine_cc != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Engine Size (cc): </div>
-                                                            <div class="col-md-7">{{carData.car.Engine_cc}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Engine_num_cyl != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Cylinders: </div>
-                                                            <div class="col-md-7">{{carData.car.Engine_num_cyl}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Engine_power_ps != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Engine Power (ps): </div>
-                                                            <div class="col-md-7">{{carData.car.Engine_power_ps}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Engine_valves_per_cyl  != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Valves per Cylinder: </div>
-                                                            <div class="col-md-7">{{carData.car.Engine_valves_per_cyl}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Engine_position != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Engine Position: </div>
-                                                            <div class="col-md-7">{{carData.car.Engine_position}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Engine_fuel != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Fuel Type: </div>
-                                                            <div class="col-md-7">{{carData.car.Engine_fuel}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Top_speed_kph != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Top Speed (kph): </div>
-                                                            <div class="col-md-7">{{carData.car.Top_speed_kph}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Zero_to_100_kph != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Zero to 100kph (sec): </div>
-                                                            <div class="col-md-7">{{carData.car.Zero_to_100_kph}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Drive_type != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Drive Type: </div>
-                                                            <div class="col-md-7">{{carData.car.Drive_type}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Transmission_type != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Transmission Type: </div>
-                                                            <div class="col-md-7">{{carData.car.Transmission_type}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Seats != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Seats: </div>
-                                                            <div class="col-md-7">{{carData.car.Seats}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Weight_kg != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Weight (kg): </div>
-                                                            <div class="col-md-7">{{carData.car.Weight_kg}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Length_mm != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Length (mm): </div>
-                                                            <div class="col-md-7">{{carData.car.Length_mm}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Width_mm != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Width (mm):</div>
-                                                            <div class="col-md-7">{{carData.car.Width_mm}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Height_mm != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Height (mm): </div>
-                                                            <div class="col-md-7">{{carData.car.Height_mm}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Wheelbase != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Wheelbase (mm): </div>
-                                                            <div class="col-md-7">{{carData.car.Wheelbase}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.Fuel_capacity_l != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">Fuel Capacity (l): </div>
-                                                            <div class="col-md-7">{{carData.car.Fuel_capacity_l}}<br /></div>
-                                                        </div>
-                                                        <div class="row" ng-show="carData.car.CO2 != ''">
-                                                            <div class="col-md-4 col-md-offset-1 text-primary text-right">CO2 (g/km): </div>
-                                                            <div class="col-md-7">{{carData.car.CO2}}<br /></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8" id="slides_control">
+                                                    <div class="col-sm-7" id="slides_control">
                                                         <!-- Set up an image carousel using UI-Bootstrap for Angular. To manage the sequence animation we require two
-                                                            additional $scope variables, one to handle the slide change interval, one to say wheter to wrap the slides-->
-                                                        <uib-carousel interval="slideInterval" no-wrap="!wrapSlides">
-                                                            <uib-slide ng-repeat="url in carData.imageURLs">
-                                                                <img class="img-responsive" ng-src="{{url}}"/>
+                                                        additional $scope variables, one to handle the slide change interval, one to say wheter to wrap the slides-->
+                                                        <uib-carousel interval="slideInterval">
+                                                            <uib-slide ng-repeat="url in carData.ImageURLs">
+                                                                <img class="img-responsive" ng-src="{{url}}" />
                                                             </uib-slide>
                                                         </uib-carousel>
                                                     </div>
+                                                    <div class="col-sm-5">
+                                                        <div class="row" ng-show="carData.Car.Trim != ''">
+                                                            <div class="col-sm-5">Trim </div>
+                                                            <div class="col-sm-7">{{selectedTrim}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Doors != ''">
+                                                            <div class="col-sm-5">Doors </div>
+                                                            <div class="col-sm-7">{{carData.Car.Doors}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Body_style != ''">
+                                                            <div class="col-sm-5">Body Style </div>
+                                                            <div class="col-sm-7">{{carData.Car.Body_style}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Engine_cc != ''">
+                                                            <div class="col-sm-5">Engine Size (cc) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Engine_cc}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Engine_num_cyl != ''">
+                                                            <div class="col-sm-5">Cylinders </div>
+                                                            <div class="col-sm-7">{{carData.Car.Engine_num_cyl}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Engine_power_ps != ''">
+                                                            <div class="col-sm-5">Engine Power (ps) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Engine_power_ps}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Engine_valves_per_cyl  != ''">
+                                                            <div class="col-sm-5">Valves per Cylinder </div>
+                                                            <div class="col-sm-7">{{carData.Car.Engine_valves_per_cyl}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Engine_position != ''">
+                                                            <div class="col-sm-5">Engine Position </div>
+                                                            <div class="col-sm-7">{{carData.Car.Engine_position}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Engine_fuel != ''">
+                                                            <div class="col-sm-5">Fuel Type </div>
+                                                            <div class="col-sm-7">{{carData.Car.Engine_fuel}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Top_speed_kph != ''">
+                                                            <div class="col-sm-5">Top Speed (kph) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Top_speed_kph}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Zero_to_100_kph != ''">
+                                                            <div class="col-sm-5">0 to 100kph (sec) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Zero_to_100_kph}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Drive_type != ''">
+                                                            <div class="col-sm-5">Drive Type </div>
+                                                            <div class="col-sm-7">{{carData.Car.Drive_type}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Transmission_type != ''">
+                                                            <div class="col-sm-5">Transmission Type </div>
+                                                            <div class="col-sm-7">{{carData.Car.Transmission_type}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Seats != ''">
+                                                            <div class="col-sm-5">Seats </div>
+                                                            <div class="col-sm-7">{{carData.Car.Seats}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Weight_kg != ''">
+                                                            <div class="col-sm-5">Weight (kg) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Weight_kg}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Length_mm != ''">
+                                                            <div class="col-sm-5">Length (mm) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Length_mm}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Width_mm != ''">
+                                                            <div class="col-sm-5">Width (mm):</div>
+                                                            <div class="col-sm-7">{{carData.Car.Width_mm}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Height_mm != ''">
+                                                            <div class="col-sm-5">Height (mm) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Height_mm}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Wheelbase != ''">
+                                                            <div class="col-sm-5">Wheelbase (mm) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Wheelbase}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.Fuel_capacity_l != ''">
+                                                            <div class="col-sm-5">Fuel Capacity (l) </div>
+                                                            <div class="col-sm-7">{{carData.Car.Fuel_capacity_l}}<br /></div>
+                                                        </div>
+                                                        <div class="row" ng-show="carData.Car.CO2 != ''">
+                                                            <div class="col-sm-5">CO2 (g/km) </div>
+                                                            <div class="col-sm-7">{{carData.Car.CO2}}<br /></div>
+                                                        </div>
+                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                            <!-- =========
-                            End resume tab content section
-                            ===================================-->
-                            <!-- =========
-                            Start portfolio tab content section
-                            ===================================-->
-                            <div id='portfolio' class="tab-pane fade">
-                                <div class="body-content">
-                                   
-                                </div>
-                            </div>
-                            <!-- =========
-                            End portfolio tab content section
-                            ===================================-->
-                           
-                            <!-- =========
-                            Start Contact tab content section
-                            ===================================-->
-                            <div id='contact' class="tab-pane fade">
-                                <div class="body-content">
-                                    <h3 class="title"> Get In Touch</h3>
-
-                                    <!-- =========
-                                    Start form contact section
-                                    ===================================-->
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="FullnameForm">Fullname</label>
-                                                    <input type="text" class="form-control" id="FullnameForm" placeholder="Enter Fullname">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="CompanyForm">Company</label>
-                                                    <input type="text" class="form-control" id="CompanyForm" placeholder="Enter Company">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="EmailForm">Email Address</label>
-                                                    <input type="email" class="form-control" id="EmailForm" placeholder="Enter Address">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="PhoneForm">Phone Number</label>
-                                                    <input type="text" class="form-control" id="PhoneForm" placeholder="Enter Phone NUmber">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="MesageForm">Message</label>
-                                            <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-flat btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
-                                    </form>
-                                    <!-- =========
-                                    End form contact section
-                                    ===================================-->
-
-                                </div>
                             </div>
 
-                        </div>
+                                <!-- =========
+        End resume tab content section
+        ===================================-->
+                                <!-- =========
+        Start portfolio tab content section
+        ===================================-->
+                                <div id='portfolio' class="tab-pane fade">
+                                    <div class="body-content">
+
+                                    </div>
+                                </div>
+                                <!-- =========
+        End portfolio tab content section
+        ===================================-->
+                                <!-- =========
+        Start Contact tab content section
+        ===================================-->
+                                <div id='contact' class="tab-pane fade">
+                                    <div class="body-content">
+                                        <h3 class="title"> Get In Touch</h3>
+
+                                        <!-- =========
+                Start form contact section
+                ===================================-->
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="FullnameForm">Fullname</label>
+                                                        <input type="text" class="form-control" id="FullnameForm" placeholder="Enter Fullname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="CompanyForm">Company</label>
+                                                        <input type="text" class="form-control" id="CompanyForm" placeholder="Enter Company">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="EmailForm">Email Address</label>
+                                                        <input type="email" class="form-control" id="EmailForm" placeholder="Enter Address">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="PhoneForm">Phone Number</label>
+                                                        <input type="text" class="form-control" id="PhoneForm" placeholder="Enter Phone NUmber">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="MesageForm">Message</label>
+                                                <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-flat btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
+                                        </form>
+                                        <!-- =========
+                End form contact section
+                ===================================-->
+
+                                    </div>
+                                </div>
+
+                            </div>
                         <!-- =========
                         End tab content section
                         ===================================-->

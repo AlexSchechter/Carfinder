@@ -1,1 +1,1 @@
-﻿angular.module('CarFinderApp', []);
+﻿angular.module('CarFinderApp', ['ui.bootstrap', 'ngAnimate']);

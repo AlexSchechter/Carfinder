@@ -8,8 +8,7 @@
     $scope.selectedMake = '';
     $scope.selectedModel = '';
     $scope.selectedTrim = '';
-    $scope.slideInterval = 4000;
-    $scope.WrapSlides = true;
+    $scope.slideInterval = 40000;
 
     $scope.getYears = function () {
         //declare options object (if necessary)

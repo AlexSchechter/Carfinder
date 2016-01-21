@@ -13,22 +13,30 @@
 */
 
 /*load google font */
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+.img-responsive {
+    display: inline-block;
+    margin: 0 auto;
+    height: 350px !important;
+}
 .selection .form-control{
     color: #ba4e4e;
     font-weight: bold;
+    margin-left: 0px;
 }
 .myLabels{
     color: black;
-    margin-left:60px;
     font-size: large;
     padding-bottom: 5px;
-    padding-top: 20px;
     display:block;
 }
 #carHeading{
     margin-top: 40px;
     margin-bottom: 40px;
-    margin-left: 60px;
+    margin-left: 0px;
     font-weight: bold;
     font-size: x-large;
     color: black;
@@ -327,9 +335,7 @@ Main Section Section
     text-align: center !important;
   }
 }
-.img-responsive {
-  display: inline-block;
-}
+
 .deviter {
   height: 1px;
   margin: 10px 0;

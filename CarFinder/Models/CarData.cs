@@ -7,8 +7,8 @@ namespace CarFinder.Models
 {
     public class CarData
     {
-        public Car car { get; set; }
-        public Recalls recalls { get; set; }
-        public string[] imageURLs { get; set; }
+        public Car Car { get; set; }
+        public Recalls Recalls { get; set; }
+        public string[] ImageURLs { get; set; }
     }
 }
