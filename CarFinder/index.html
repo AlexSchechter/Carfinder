@@ -71,8 +71,8 @@
                         <nav id='navigation'>
                             <ul class="navigation-list clearfix list-unstyled">
                                 <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i class="icon-user"></i> <span>About</span></a></li>
-                                <li><a href="#resume" data-toggle="tab" data-menu="resume"><i class="icon-newspaper"></i>  <span>Cars</span></a></li>
-                                <li><a href="#portfolio" data-toggle="tab" data-menu="portfolio"><i class="icon-folder-open"></i> <span>API</span></a></li>
+                                <li><a href="#search" data-toggle="tab" data-menu="search"><i class="icon-newspaper"></i>  <span>Cars</span></a></li>
+                                <li><a href="#apihelp" data-toggle="tab" data-menu="apihelp"><i class="icon-folder-open"></i> <span>API</span></a></li>
                                 <li><a href="#contact" data-toggle="tab" data-menu="contact"><i class="icon-mail"></i> <span>Contact</span></a></li>
                             </ul>
                         </nav>
@@ -115,9 +115,9 @@
                             End About tab content section
                             ===================================-->
                             <!-- =========
-                            Start resume tab content section
+                            Start search tab content section
                             ===================================-->
-                            <div id='resume' class="tab-pane fade">
+                            <div id='search' class="tab-pane fade">
                                 <div class="body-content">
                                     <div class="row">
                                         <div id="start" class="col-sm-12" ng-app="CarFinderApp">
@@ -148,8 +148,6 @@
                                                 </h2>
                                                 <div class="row" id="displayElements" ng-show="carData != null">
                                                     <div class="col-sm-7" id="slides_control">
-                                                        <!-- Set up an image carousel using UI-Bootstrap for Angular. To manage the sequence animation we require two
-                                                        additional $scope variables, one to handle the slide change interval, one to say wheter to wrap the slides-->
                                                         <uib-carousel interval="slideInterval">
                                                             <uib-slide ng-repeat="url in carData.ImageURLs">
                                                                 <img class="img-responsive" ng-src="{{url}}" />
@@ -158,51 +156,51 @@
                                                     </div>
                                                     <div class="col-sm-5">
                                                         <div class="row" ng-show="carData.Car.Trim != ''">
-                                                            <div class="col-sm-5">Trim </div>
+                                                            <div class="col-sm-5">Trim: </div>
                                                             <div class="col-sm-7">{{selectedTrim}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Doors != ''">
-                                                            <div class="col-sm-5">Doors </div>
+                                                            <div class="col-sm-5">Doors: </div>
                                                             <div class="col-sm-7">{{carData.Car.Doors}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Body_style != ''">
-                                                            <div class="col-sm-5">Body Style </div>
+                                                            <div class="col-sm-5">Body Style: </div>
                                                             <div class="col-sm-7">{{carData.Car.Body_style}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Engine_cc != ''">
-                                                            <div class="col-sm-5">Engine Size (cc) </div>
+                                                            <div class="col-sm-5">Engine Size: (cc) </div>
                                                             <div class="col-sm-7">{{carData.Car.Engine_cc}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Engine_num_cyl != ''">
-                                                            <div class="col-sm-5">Cylinders </div>
+                                                            <div class="col-sm-5">Cylinders: </div>
                                                             <div class="col-sm-7">{{carData.Car.Engine_num_cyl}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Engine_power_ps != ''">
-                                                            <div class="col-sm-5">Engine Power (ps) </div>
+                                                            <div class="col-sm-5">Engine Power (ps): </div>
                                                             <div class="col-sm-7">{{carData.Car.Engine_power_ps}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Engine_valves_per_cyl  != ''">
-                                                            <div class="col-sm-5">Valves per Cylinder </div>
+                                                            <div class="col-sm-5">Valves per Cylinder: </div>
                                                             <div class="col-sm-7">{{carData.Car.Engine_valves_per_cyl}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Engine_position != ''">
-                                                            <div class="col-sm-5">Engine Position </div>
+                                                            <div class="col-sm-5">Engine Position: </div>
                                                             <div class="col-sm-7">{{carData.Car.Engine_position}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Engine_fuel != ''">
-                                                            <div class="col-sm-5">Fuel Type </div>
+                                                            <div class="col-sm-5">Fuel Type: </div>
                                                             <div class="col-sm-7">{{carData.Car.Engine_fuel}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Top_speed_kph != ''">
-                                                            <div class="col-sm-5">Top Speed (kph) </div>
+                                                            <div class="col-sm-5">Top Speed (kph): </div>
                                                             <div class="col-sm-7">{{carData.Car.Top_speed_kph}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Zero_to_100_kph != ''">
-                                                            <div class="col-sm-5">0 to 100kph (sec) </div>
+                                                            <div class="col-sm-5">0 to 100kph (sec): </div>
                                                             <div class="col-sm-7">{{carData.Car.Zero_to_100_kph}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Drive_type != ''">
-                                                            <div class="col-sm-5">Drive Type </div>
+                                                            <div class="col-sm-5">Drive Type: </div>
                                                             <div class="col-sm-7">{{carData.Car.Drive_type}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Transmission_type != ''">
@@ -210,79 +208,81 @@
                                                             <div class="col-sm-7">{{carData.Car.Transmission_type}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Seats != ''">
-                                                            <div class="col-sm-5">Seats </div>
+                                                            <div class="col-sm-5">Seats: </div>
                                                             <div class="col-sm-7">{{carData.Car.Seats}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Weight_kg != ''">
-                                                            <div class="col-sm-5">Weight (kg) </div>
+                                                            <div class="col-sm-5">Weight (kg): </div>
                                                             <div class="col-sm-7">{{carData.Car.Weight_kg}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Length_mm != ''">
-                                                            <div class="col-sm-5">Length (mm) </div>
+                                                            <div class="col-sm-5">Length (mm): </div>
                                                             <div class="col-sm-7">{{carData.Car.Length_mm}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Width_mm != ''">
-                                                            <div class="col-sm-5">Width (mm):</div>
+                                                            <div class="col-sm-5">Width (mm): </div>
                                                             <div class="col-sm-7">{{carData.Car.Width_mm}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Height_mm != ''">
-                                                            <div class="col-sm-5">Height (mm) </div>
+                                                            <div class="col-sm-5">Height (mm): </div>
                                                             <div class="col-sm-7">{{carData.Car.Height_mm}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Wheelbase != ''">
-                                                            <div class="col-sm-5">Wheelbase (mm) </div>
+                                                            <div class="col-sm-5">Wheelbase (mm): </div>
                                                             <div class="col-sm-7">{{carData.Car.Wheelbase}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.Fuel_capacity_l != ''">
-                                                            <div class="col-sm-5">Fuel Capacity (l) </div>
+                                                            <div class="col-sm-5">Fuel Capacity (l): </div>
                                                             <div class="col-sm-7">{{carData.Car.Fuel_capacity_l}}<br /></div>
                                                         </div>
                                                         <div class="row" ng-show="carData.Car.CO2 != ''">
-                                                            <div class="col-sm-5">CO2 (g/km) </div>
+                                                            <div class="col-sm-5">CO2 (g/km): </div>
                                                             <div class="col-sm-7">{{carData.Car.CO2}}<br /></div>
                                                         </div>
                                                     </div>                      
                                                 </div>
-                                                <div class="row">
-                                                    <div class="panel panel-default recallPanel" ng-show="carData.Recalls.Count > 0">
+                                                <div class="row" id="myRecalls">
+                                                    <div class="panel panel-default recallPanel" ng-show="carData.Recalls.Count> 0">
                                                         <div class="panel-heading recallPanel">
                                                             <h3 class="panel-title text-center">
-                                                                <a href="" ng-click="isCollapsed = !isCollapsed">
+                                                                <a href="" ng-click="viewRecalls()"><!--"isCollapsed = !isCollapsed">-->
                                                                     <span class="viewRecalls">View Recalls ({{carData.Recalls.Count}})</span>
                                                                 </a>
                                                             </h3>
                                                         </div>
-                                                        <div uib-collapse="isCollapsed">
+                                                        <div id="loc" uib-collapse="isCollapsed">
                                                             <div class="panel-body">
-                                                                <div class="col-sm-12">
-                                                                    <div ng-repeat="recallItem in carData.Recalls.Results">
+                                                                <div ng-view>
+                                                                    <div class="col-sm-12">
+                                                                        <div ng-repeat="recallItem in carData.Recalls.Results">
 
-                                                                        <div class="bold" ng-show="recallItem.NHTSACampaignNumber != null">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-3 text-right recallDescription">Recall Number: </div>
-                                                                                <div class="col=sm-9 text-left recallDetail">{{recallItem.NHTSACampaignNumber}}</div>
+                                                                            <div class="bold" ng-show="recallItem.NHTSACampaignNumber != null">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-3 text-right recallDescription">Recall Number: </div>
+                                                                                    <div class="col=sm-9 text-left recallDetail">{{recallItem.NHTSACampaignNumber}}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="bold" ng-show="recallItem.Component != null">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-3 text-right recallDescription">Affected Component: </div>
+                                                                                    <div class="col=sm-9 text-left recallDetail">{{recallItem.Component}}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="bold" ng-show="recallItem.Summary != null">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-3 text-right recallDescription">Recall Reason: </div>
+                                                                                    <div class="col=sm-9 recallDetail">{{recallItem.Summary}}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="bold" ng-show="recallItem.Conequence != null">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-3 text-right recallDescription">Consequence: </div>
+                                                                                    <div class="col=sm-9 text-left recallDetail">{{recallItem.Conequence}}</div>
+                                                                                    <br />
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="bold" ng-show="recallItem.Component != null">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-3 text-right recallDescription">Affected Component: </div>
-                                                                                <div class="col=sm-9 text-left recallDetail">{{recallItem.Component}}</div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="bold" ng-show="recallItem.Summary != null">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-3 text-right recallDescription">Recall Reason: </div>
-                                                                                <div class="col=sm-9 recallDetail">{{recallItem.Summary}}</div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="bold" ng-show="recallItem.Conequence != null">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-3 text-right recallDescription">Consequence: </div>
-                                                                                <div class="col=sm-9 text-left recallDetail">{{recallItem.Conequence}}</div>
-                                                                                <br />
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>                                                                                                                         
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -295,18 +295,18 @@
                             </div>
 
                                 <!-- =========
-        End resume tab content section
+        End search tab content section
         ===================================-->
                                 <!-- =========
-        Start portfolio tab content section
+        Start apihelp tab content section
         ===================================-->
-                                <div id='portfolio' class="tab-pane fade">
+                                <div id='apihelp' class="tab-pane fade">
                                     <div class="body-content">
 
                                     </div>
                                 </div>
                                 <!-- =========
-        End portfolio tab content section
+        End apihelp tab content section
         ===================================-->
                                 <!-- =========
         Start Contact tab content section

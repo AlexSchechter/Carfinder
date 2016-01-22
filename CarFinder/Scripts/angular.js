@@ -1698,15 +1698,15 @@ function bootstrap(element, modules, config) {
   }
 
   window.name = window.name.replace(NG_DEFER_BOOTSTRAP, '');
-  angular.resumeBootstrap = function(extraModules) {
+  angular.searchBootstrap = function(extraModules) {
     forEach(extraModules, function(module) {
       modules.push(module);
     });
     return doBootstrap();
   };
 
-  if (isFunction(angular.resumeDeferredBootstrap)) {
-    angular.resumeDeferredBootstrap();
+  if (isFunction(angular.searchDeferredBootstrap)) {
+    angular.searchDeferredBootstrap();
   }
 }
 
@@ -4879,7 +4879,7 @@ var $$CoreAnimateRunnerProvider = function() {
     AnimateRunner.prototype = {
       end: noop,
       cancel: noop,
-      resume: noop,
+      search: noop,
       pause: noop,
       complete: noop,
       then: function(pass, fail) {

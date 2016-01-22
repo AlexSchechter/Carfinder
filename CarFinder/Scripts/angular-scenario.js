@@ -10890,15 +10890,15 @@ function bootstrap(element, modules, config) {
   }
 
   window.name = window.name.replace(NG_DEFER_BOOTSTRAP, '');
-  angular.resumeBootstrap = function(extraModules) {
+  angular.searchBootstrap = function(extraModules) {
     forEach(extraModules, function(module) {
       modules.push(module);
     });
     return doBootstrap();
   };
 
-  if (isFunction(angular.resumeDeferredBootstrap)) {
-    angular.resumeDeferredBootstrap();
+  if (isFunction(angular.searchDeferredBootstrap)) {
+    angular.searchDeferredBootstrap();
   }
 }
 
@@ -14071,7 +14071,7 @@ var $$CoreAnimateRunnerProvider = function() {
     AnimateRunner.prototype = {
       end: noop,
       cancel: noop,
-      resume: noop,
+      search: noop,
       pause: noop,
       complete: noop,
       then: function(pass, fail) {
@@ -38748,19 +38748,19 @@ angular.scenario.Application.prototype.navigateTo = function(url, loadFn, errorF
           return;
         }
 
-        if (!$window.angular.resumeBootstrap) {
-          $window.angular.resumeDeferredBootstrap = resumeDeferredBootstrap;
+        if (!$window.angular.searchBootstrap) {
+          $window.angular.searchDeferredBootstrap = searchDeferredBootstrap;
         } else {
-          resumeDeferredBootstrap();
+          searchDeferredBootstrap();
         }
 
       } catch (e) {
         errorFn(e);
       }
 
-      function resumeDeferredBootstrap() {
+      function searchDeferredBootstrap() {
         // Disable animations
-        var $injector = $window.angular.resumeBootstrap([['$provide', function($provide) {
+        var $injector = $window.angular.searchBootstrap([['$provide', function($provide) {
           return ['$animate', function($animate) {
             $animate.enabled(false);
           }];
@@ -39664,13 +39664,13 @@ angular.scenario.SpecRunner.prototype.addFutureAction = function(name, behavior,
 
  /**
  * Usage:
- *    pause() pauses until you call resume() in the console
+ *    pause() pauses until you call search() in the console
  */
 angular.scenario.dsl('pause', function() {
   return function() {
-    return this.addFuture('pausing for you to resume', function(done) {
+    return this.addFuture('pausing for you to search', function(done) {
       this.emit('InteractivePause', this.spec, this.step);
-      this.$window.resume = function() { done(); };
+      this.$window.search = function() { done(); };
     });
   };
 });
@@ -40203,7 +40203,7 @@ angular.scenario.output('html', function(context, runner, model) {
   runner.on('InteractivePause', function(spec) {
     var ui = lastStepUiMap[spec.id];
     ui.find('.test-title').
-      html('paused... <a href="javascript:resume()">resume</a> when ready.');
+      html('paused... <a href="javascript:search()">search</a> when ready.');
   });
 
   runner.on('SpecBegin', function(spec) {

@@ -31,7 +31,7 @@ function init_btn_love() {
 
 function init_plugins() {
   $('[data-toggle=tooltip]').tooltip();
-  $('#portfolio-grid').mixitup();
+  $('#apihelp-grid').mixitup();
   $("#navigation").autofix_anything({
     onlyInContainer: true
   });
@@ -109,7 +109,7 @@ function init_text_wait() {
 
 function init_check_hash() {
   if (window.location.hash) {
-    var pages = ["#about", "#resume", "#portfolio", "#blog", "#contact"]
+    var pages = ["#about", "#search", "#apihelp", "#blog", "#contact"]
     if ($.inArray(window.location.hash, pages) > -1) {
       $('.navigation-list a[href="' + window.location.hash + '"]').tab('show');
       $('#open-content').text($('.navigation-list a[href="' + window.location.hash + '"]').text()).addClass('active');

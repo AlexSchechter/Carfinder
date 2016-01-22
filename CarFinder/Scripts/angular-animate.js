@@ -1108,7 +1108,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           runnerHost = {
             end: endFn,
             cancel: cancelFn,
-            resume: null, //this will be set during the start() phase
+            search: null, //this will be set during the start() phase
             pause: null
           };
 
@@ -1116,9 +1116,9 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
 
           waitUntilQuiet(start);
 
-          // we don't have access to pause/resume the animation
+          // we don't have access to pause/search the animation
           // since it hasn't run yet. AnimateRunner will therefore
-          // set noop functions for resume and pause and they will
+          // set noop functions for search and pause and they will
           // later be overridden once the animation is triggered
           return runner;
         }
@@ -1251,8 +1251,8 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           triggerAnimationStart();
         }
 
-        // this will decorate the existing promise runner with pause/resume methods
-        runnerHost.resume = function() {
+        // this will decorate the existing promise runner with pause/search methods
+        runnerHost.search = function() {
           playPause(true);
         };
 
@@ -1397,7 +1397,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
            * but we're using elapsedTime instead of the timeStamp on the 2nd
            * pre-condition since animations sometimes close off early */
           if (Math.max(timeStamp - startTime, 0) >= maxDelayTime && elapsedTime >= maxDuration) {
-            // we set this flag to ensure that if the transition is paused then, when resumed,
+            // we set this flag to ensure that if the transition is paused then, when searchd,
             // the animation will automatically close itself since transitions cannot be paused.
             animationCompleted = true;
             close();
@@ -2731,9 +2731,9 @@ var $$AnimateRunnerFactory = ['$q', '$sniffer', '$$animateAsyncRun',
       }
     },
 
-    resume: function() {
-      if (this.host.resume) {
-        this.host.resume();
+    search: function() {
+      if (this.host.search) {
+        this.host.search();
       }
     },
 
