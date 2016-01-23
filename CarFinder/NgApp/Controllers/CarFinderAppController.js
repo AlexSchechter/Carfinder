@@ -11,7 +11,7 @@
         $scope.selectedModel = '';
         $scope.selectedTrim = '';
     
-        $scope.slideInterval = 300000;
+        $scope.slideInterval = 3000;
         $scope.isCollapsed = true;
 
         $scope.getYears = function () {

@@ -233,6 +233,7 @@
     <Content Include="assets\font\tello\LICENSE.txt" />
     <Content Include="assets\font\tello\README.txt" />
     <Content Include="assets\images\arrow-down.png" />
+    <Content Include="assets\images\ASicon.png" />
     <Content Include="assets\images\avatar.png" />
     <Content Include="assets\images\bg-line.png" />
     <Content Include="assets\images\bg\bg1.jpg" />
