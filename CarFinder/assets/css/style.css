@@ -202,7 +202,7 @@ Main Section Section
   }
 }
 #navigation .navigation-list {
-  max-width: 946px;
+  max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
   list-style: none;
@@ -247,11 +247,20 @@ Main Section Section
   color: white;
   font-weight: 400;
 }
+
+
+@media (max-width: 1200px) {
+    #navigation .navigation-list{
+        max-width: 940px;
+    }
+}
+
 @media (max-width: 990px) {
   #navigation .navigation-list {
     max-width: 720px;
   }
 }
+
 @media (max-width: 650px) {
   #navigation .navigation-list span {
     display: none;

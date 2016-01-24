@@ -96,16 +96,19 @@
                                     <div class="row" id="centre">                                  
                                         <div class="col-sm-10 col-sm-offset-1">
                                                 <h2 class="title"> Car Finder App</h2>
-                                                <p>This app is an excercise in using internal and external APIs.</p>
-                                                    let's the user search a car database of over 60,000 cars on the server via an internal API. The drop down menus are populated 
-                                                    dynamically based on the user's choices. </p>
-                                                <p>Once a car has been chosen information available in the local database is displayed to the other. 
-                                                    This information includes for example engine size, doors, weight, length, fuel type, etc... However,
-                                                    please note that the database is missing some of the information for some cars and in those cases
-                                                    only the available information will be displayed.</p>
-                                                <p>Using a BING API 5 pictures for the car will also be displayed. </p>
-                                                <p>The user can also check for details of any recalls in the USA for the chosen car. This is done via a API to the NHTSA database. </p>
-                                                <p>The back-end has been programmed with C# and the front-end with AngularJS.</p>
+                                                <p>This app is an exercise which makes use of internal and external APIs to allow users to search a car database </p>
+                                                <ul>
+                                                    <li>The datase which contains information about over 60,000 cars is saved on Azure as part of the solution</li>
+                                                    <li>The drop down menus are populated dynamically with car details from the database</li>
+                                                    <li>Once a car has been selected, the local database is displays all avaialable information on that car. This information includes 
+                                                        engine size, doors, weight, length, fuel type, etc...</li>                                             
+                                                    <li>Another call is made to the BING API to retrieve images available for the chosen car</li>
+                                                    <li>The images are displayed via a AngularJS carousel</li>
+                                                    <li>A third call is made to the NHTSA API to retrieve information about potential recalls in the USA</li>
+                                                    <li>If there have been recalls, those are display at the bottom of the page in collapsed panel that can be extentded by the user</li>
+                                                    <li>The front-end of the app has been programmed in Angular JS and Bootstrap</li>
+                                                    <li>The back-end (including the API calls) has been programmed in C#</li>
+                                                </ul>                      
                                         </div>
                                     </div>
                                 </div>
