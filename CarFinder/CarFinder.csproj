@@ -223,6 +223,16 @@
     <Content Include="assets\font\fa\css\font-awesome.css" />
     <Content Include="assets\font\fa\css\font-awesome.min.css" />
     <Content Include="assets\font\fa\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\font\fontello\css\animation.css" />
+    <Content Include="assets\font\fontello\css\fontello-codes.css" />
+    <Content Include="assets\font\fontello\css\fontello-embedded.css" />
+    <Content Include="assets\font\fontello\css\fontello-ie7-codes.css" />
+    <Content Include="assets\font\fontello\css\fontello-ie7.css" />
+    <Content Include="assets\font\fontello\css\fontello.css" />
+    <Content Include="assets\font\fontello\demo.html" />
+    <Content Include="assets\font\fontello\font\fontello.svg" />
+    <Content Include="assets\font\fontello\LICENSE.txt" />
+    <Content Include="assets\font\fontello\README.txt" />
     <Content Include="assets\font\tello\css\animation.css" />
     <Content Include="assets\font\tello\css\fontello-codes.css" />
     <Content Include="assets\font\tello\css\fontello-embedded.css" />
@@ -231,6 +241,7 @@
     <Content Include="assets\font\tello\css\fontello.css" />
     <Content Include="assets\font\tello\demo.html" />
     <Content Include="assets\font\tello\font\fontello.svg" />
+    <Content Include="assets\font\tello\font\fontello.woff" />
     <Content Include="assets\font\tello\LICENSE.txt" />
     <Content Include="assets\font\tello\README.txt" />
     <Content Include="assets\images\arrow-down.png" />
@@ -374,7 +385,6 @@
     <Content Include="assets\font\tello\config.json" />
     <Content Include="assets\font\tello\font\fontello.eot" />
     <Content Include="assets\font\tello\font\fontello.ttf" />
-    <Content Include="assets\font\tello\font\fontello.woff" />
     <Content Include="bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -389,6 +399,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\font\fontello\config.json" />
+    <Content Include="assets\font\fontello\font\fontello.eot" />
+    <Content Include="assets\font\fontello\font\fontello.ttf" />
+    <Content Include="assets\font\fontello\font\fontello.woff" />
     <None Include="Properties\PublishProfiles\CarFinderApp - Web Deploy.pubxml" />
     <Content Include="Scripts\angular-resource.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
@@ -1217,6 +1231,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

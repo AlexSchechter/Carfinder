@@ -15,23 +15,16 @@
         $scope.isCollapsed = true;
 
         $scope.getYears = function () {
-            //declare options object (if necessary)
             $http.get('../api/cars/years').then(function (response) {
-                //assign result to a $scope variable
                 $scope.years = response.data;
-                //$scope.makes = [];
-                //$scope.models = [];
-                //$scope.trims = [];
-                //$scope.carData = {};
             });
-            //assign result to a $scope variable
         };
 
         $scope.getMakes = function () {
             $scope.selectedMake = '';
             $scope.selectedModel = '';
             $scope.selectedTrim = '';
-            var options = { params: { year: $scope.selectedYear } }; //pass the selected year to the API
+            var options = { params: { year: $scope.selectedYear } }; 
             $http.get('../api/cars/MakesByYear', options).then(function (response){
                 $scope.makes = response.data;
                 $scope.models = null;
@@ -97,16 +90,4 @@
             };
         };
 
-
-        //$scope.viewRecalls = function () {
-        //    $scope.isCollapsed = !$scope.isCollapsed;          
-        //};
-
-        //$scope.$on('viewContentLoaded', function(){
-        //    $location.hash('myRecalls');
-        //    $anchorScroll.yOffset = 55;
-        //    $anchorScroll();
-        //});
-                
-     
 }]);

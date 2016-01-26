@@ -5,14 +5,14 @@
 */
 
 /*-how do I make make each tab item full screen exactly (responsive)? - PROBLEM AS HEADER STILL THERE
-  -how do I make text in about page prettier?
-  -labels for car search - OK
+  -how do I make text in about page prettier? //
+  -labels for car search - OK //
   -how do I add API info
-  -change icons tab selection elements
+  -change icons tab selection elements//
   -get rid of legacy from template
-  -body element does not align 
-  -added padding at bottom of page as demanded but how do I get rid of blue stripe
-  -error message of font not loading
+  -body element does not align //
+  -added padding at bottom of page as demanded but how do I get rid of blue stripe //
+  -error message of font not loading //
   -(angular function to scroll when element loaded rather than after x seconds)
 */
 
@@ -60,13 +60,20 @@
     border: 0px;
 }
 header.portrait{
-    background-color:rgba(255,255,255,0.0000001);
+    background-color: rgba(255,255,255,0.0000001);
     color: #ba4e4e;
 }
 body-portrait h1{
-    font-weight:bold;
+    font-weight: bold;
 }
-
+#apiLink{
+    padding-top: 40px;
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    display: block;
+    text-align: center;
+}
 
 html {
   overflow-y: scroll;
@@ -82,7 +89,7 @@ body {
   line-height: 24px;
   font-family: 'Open Sans', sans-serif;
   color: black;
-  background-image: url("/assets/images/bugatti.jpg");
+  background-image: url("/assets/images/bugatti.png");
   background-size: 100%;
 }
 body a {
@@ -173,7 +180,6 @@ Main Section Section
 .content {
   background: white;
   padding-top: 80px;
-  box-shadow: 0 10px 0 #36546d;
 }
 
 /* end content section */
