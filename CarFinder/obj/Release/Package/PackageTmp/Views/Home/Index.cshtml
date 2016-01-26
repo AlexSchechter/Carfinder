@@ -1,6 +1,4 @@
-﻿<!-- =========
-Start Wrapper Page
-===================================-->
+﻿
 <div id="wrapper">
     <div class="container">
         <div class="row">
@@ -27,42 +25,24 @@ Start Wrapper Page
                         <br />
                     </div>
                 </header>
-                <!-- =========
-                End portrait section
-                ===================================-->
-                <!-- =========
-                Start Content section
-                ===================================-->
+ 
                 <section class="content" id="main-content">
 
-                    <!-- =========
-                    Start navigation section
-                    ===================================-->
+
                     <nav id='navigation'>
                         <ul class="navigation-list clearfix list-unstyled">
-                            <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i class="icon-user"></i> <span>About</span></a></li>
-                            <li><a href="#search" data-toggle="tab" data-menu="search"><i class="icon-newspaper"></i>  <span>Cars</span></a></li>
-                            <li><a href="#apihelp" data-toggle="tab" data-menu="apihelp"><i class="icon-folder-open"></i> <span>API</span></a></li>
+                            <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i class="icon-info-circled"></i> <span>About</span></a></li>
+                            <li><a href="#search" data-toggle="tab" data-menu="search"><i class="icon-cab"></i>  <span>Cars</span></a></li>
+                            <li><a href="#apihelp" data-toggle="tab" data-menu="apihelp"><i class="icon-export-outline"></i> <span>API</span></a></li>
                             <li><a href="#contact" data-toggle="tab" data-menu="contact"><i class="icon-mail"></i> <span>Contact</span></a></li>
                         </ul>
                     </nav>
-                    <!-- =========
-                    End navigation section
-                    ===================================-->
-                    <!-- =========
-                    Start tab content section
-                    ===================================-->
+
                     <div class="tab-content">
 
-                        <!-- =========
-                        Start About tab content section
-                        ===================================-->
                         <div id='about' class="tab-pane  fade in  active">
                             <div class="body-content">
 
-                                <!-- =========
-                                Start About your self section
-                                ===================================-->
                                 <div class="row" id="centre">
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <h2 class="title"> Car Finder App</h2>
@@ -86,12 +66,6 @@ Start Wrapper Page
                             </div>
                         </div>
 
-                        <!-- =========
-                        End About tab content section
-                        ===================================-->
-                        <!-- =========
-                        Start search tab content section
-                        ===================================-->
                         <div id='search' class="tab-pane fade">
                             <div class="body-content">
                                 <div class="row">
@@ -221,7 +195,6 @@ Start Wrapper Page
                                                     <div class="panel-heading recallPanel">
                                                         <h3 class="panel-title text-center">
                                                             <a href="" ng-click="viewRecalls()">
-                                                                <!--"isCollapsed = !isCollapsed">-->
                                                                 <span class="viewRecalls">View Recalls ({{carData.Recalls.Count}})</span>
                                                             </a>
                                                         </h3>
@@ -270,30 +243,19 @@ Start Wrapper Page
                             </div>
                         </div>
 
-                        <!-- =========
-                        End search tab content section
-                        ===================================-->
-                        <!-- =========
-                        Start apihelp tab content section
-                        ===================================-->
-                        <div id='apihelp' class="tab-pane fade">
+                        <div id='apihelp' class="tab-pane fade apiPage">
                             <div class="body-content">
-                                @Html.ActionLink("Api help", "Index", "Help")
+                                <br />
+                                <br />
+                                <br />
+                                @Html.ActionLink("Click here for the Visual Studio generated API help page", "Index", "Help", null, new { @id = "apiLink" })                            
                             </div>
                         </div>
-                        <!-- =========
-                        End apihelp tab content section
-                        ===================================-->
-                        <!-- =========
-                        Start Contact tab content section
-                        ===================================-->
+  
                         <div id='contact' class="tab-pane fade">
                             <div class="body-content">
                                 <h3 class="title"> Get In Touch</h3>
 
-                                <!-- =========
-                                Start form contact section
-                                ===================================-->
                                 <form>
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -329,30 +291,12 @@ Start Wrapper Page
                                     </div>
                                     <button type="submit" class="btn btn-flat btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
                                 </form>
-                                <!-- =========
-                                End form contact section
-                                ===================================-->
-
                             </div>
                         </div>
-
                     </div>
-                    <!-- =========
-                    End tab content section
-                    ===================================-->
                 </section>
-                <!-- =========
-                End Content section
-                ===================================-->
-
             </div>
         </div>
     </div>
 </div>
-<!-- =========
-End Wrapper Page
-===================================-->
-<!-- =========
-Text Showup Wait Document Ready
-===================================-->
 <div id="wait-page" class="text-center">Loading...</div>

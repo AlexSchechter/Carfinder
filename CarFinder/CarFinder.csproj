@@ -253,6 +253,7 @@
     <Content Include="assets\images\bg\textured_paper.png" />
     <Content Include="assets\images\blog\blog.png" />
     <Content Include="assets\images\bugatti.jpg" />
+    <Content Include="assets\images\bugatti.png" />
     <Content Include="assets\images\client\client.png" />
     <Content Include="assets\images\faicon.png" />
     <Content Include="assets\images\icon.png" />
