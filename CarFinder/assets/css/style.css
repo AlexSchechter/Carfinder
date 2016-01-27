@@ -74,6 +74,9 @@ body-portrait h1{
     display: block;
     text-align: center;
 }
+.black{
+    color: black !important;
+}
 
 html {
   overflow-y: scroll;
@@ -288,10 +291,11 @@ Main Section Section
 #about .box-fact {
   position: relative;
   padding-left: 40px;
-  font-size: 24px;
-  line-height: 40px;
-  font-weight: 300;
+  font-size: large;
+  /*line-height: 40px;*/
+  font-weight: 500;
   margin-bottom: 20px;
+  color: black;
 }
 #about .box-fact .icn-fixed {
   position: absolute;
@@ -388,7 +392,7 @@ Main Section Section
 
 .body-content,
 .body-portrait {
-  padding: 50px 20px;
+  padding: 20px;
   min-height: 350px;
   position: relative;
 }
