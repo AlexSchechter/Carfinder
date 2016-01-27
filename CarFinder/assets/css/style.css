@@ -44,8 +44,7 @@
     margin-left: 0px;
     font-weight: bold;
     font-size: x-large;
-    color: black;
-       
+    color: black;  
 }
 .panel-title .viewRecalls{
     color: #ba4e4e;
@@ -76,6 +75,13 @@ body-portrait h1{
 }
 .black{
     color: black !important;
+}
+.icon-test {
+    background-image: url("/assets/images/bugatti.png");
+    background-position: center center;
+}
+.img-responsive.box-fact{
+    height: 100px !important;
 }
 
 html {
@@ -292,7 +298,6 @@ Main Section Section
   position: relative;
   padding-left: 40px;
   font-size: large;
-  /*line-height: 40px;*/
   font-weight: 500;
   margin-bottom: 20px;
   color: black;
