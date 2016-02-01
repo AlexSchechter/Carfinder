@@ -44,8 +44,7 @@
     margin-left: 0px;
     font-weight: bold;
     font-size: x-large;
-    color: black;
-       
+    color: black;  
 }
 .panel-title .viewRecalls{
     color: #ba4e4e;
@@ -73,6 +72,16 @@ body-portrait h1{
     color: black;
     display: block;
     text-align: center;
+}
+.black{
+    color: black !important;
+}
+.icon-test {
+    background-image: url("/assets/images/bugatti.png");
+    background-position: center center;
+}
+.img-responsive.box-fact{
+    height: 100px !important;
 }
 
 html {
@@ -288,10 +297,10 @@ Main Section Section
 #about .box-fact {
   position: relative;
   padding-left: 40px;
-  font-size: 24px;
-  line-height: 40px;
-  font-weight: 300;
+  font-size: large;
+  font-weight: 500;
   margin-bottom: 20px;
+  color: black;
 }
 #about .box-fact .icn-fixed {
   position: absolute;
@@ -388,7 +397,7 @@ Main Section Section
 
 .body-content,
 .body-portrait {
-  padding: 50px 20px;
+  padding: 20px;
   min-height: 350px;
   position: relative;
 }

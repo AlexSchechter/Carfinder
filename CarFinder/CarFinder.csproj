@@ -244,6 +244,7 @@
     <Content Include="assets\font\tello\font\fontello.woff" />
     <Content Include="assets\font\tello\LICENSE.txt" />
     <Content Include="assets\font\tello\README.txt" />
+    <Content Include="assets\images\Angular.png" />
     <Content Include="assets\images\arrow-down.png" />
     <Content Include="assets\images\ASicon.png" />
     <Content Include="assets\images\avatar.png" />
@@ -252,9 +253,12 @@
     <Content Include="assets\images\bg\skulls.png" />
     <Content Include="assets\images\bg\textured_paper.png" />
     <Content Include="assets\images\blog\blog.png" />
+    <Content Include="assets\images\bootstrap.jpg" />
     <Content Include="assets\images\bugatti.jpg" />
     <Content Include="assets\images\bugatti.png" />
+    <Content Include="assets\images\bugatti1.jpg" />
     <Content Include="assets\images\client\client.png" />
+    <Content Include="assets\images\CSharp.jpg" />
     <Content Include="assets\images\faicon.png" />
     <Content Include="assets\images\icon.png" />
     <Content Include="assets\images\loader.gif" />
@@ -263,6 +267,7 @@
     <Content Include="assets\images\point2.png" />
     <Content Include="assets\images\portfolio\big\portfolio-big.png" />
     <Content Include="assets\images\portfolio\portfolio.png" />
+    <Content Include="assets\images\webapi.jpg" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\jquery.autofix_anything.js" />
     <Content Include="assets\js\jquery.magnific-popup.js" />
